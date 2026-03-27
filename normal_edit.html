@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERA AI Editor - AI-Powered Video Editing Platform</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --primary-light: #818cf8;
+            --secondary: #0f172a;
+            --accent: #8b5cf6;
+            --success: #10b981;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --border: #e2e8f0;
+            
+            /* Typography */
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-display: 'Sora', 'Inter', sans-serif;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Border radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Transitions */
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Dark mode variables */
+        .dark {
+            --background: #0f172a;
+            --surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #64748b;
+            --border: #334155;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 50;
+        }
+
+        .dark .navbar {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--surface);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stat-label {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        /* Features Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(79, 70, 229, 0.1);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-desc {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* How it works */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .step-card {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            font-family: var(--font-display);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            color: var(--text-secondary);
+        }
+
+        /* Pricing */
+        .pricing-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .toggle-btn {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 4px;
+            display: inline-flex;
+        }
+
+        .toggle-option {
+            padding: 8px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .toggle-option.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .save-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 4px 16px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .pricing-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            font-family: var(--font-display);
+        }
+
+        .pricing-price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-tertiary);
+        }
+
+        .pricing-period {
+            color: var(--text-tertiary);
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features i {
+            color: var(--success);
+            font-size: 1rem;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pricing-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .pricing-btn.secondary {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .pricing-btn.secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-rating {
+            color: #fbbf24;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+        }
+
+        .faq-answer.show {
+            display: block;
+        }
+
+        /* Final CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: var(--radius-xl);
+            padding: 80px;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+        }
+
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 60px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .footer-desc {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .footer-title {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-cta {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .features-grid,
+            .steps-grid,
+            .pricing-grid,
+            .testimonials-grid,
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .features-grid,
+            .steps-grid,
+            .pricing-grid,
+            .testimonials-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 40px 20px;
+            }
+            
+            .cta-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-film"></i></span>
+                TERA AI
+            </a>
+            
+            <div class="nav-menu">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="/normal-edit" class="btn btn-primary">
+                    <i class="fas fa-video"></i> Open Editor
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-bolt"></i>
+                        AI-Powered Video Editing
+                    </div>
+                    <h1 class="hero-title">
+                        Edit Videos at<br>
+                        <span class="hero-gradient">Lightning Speed</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Join 50,000+ creators using TERA AI to edit videos 10x faster. Auto subtitles, smart cuts, and professional effects in seconds.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="/normal-edit" class="btn btn-primary btn-large">
+                            <i class="fas fa-play"></i> Start Editing Now
+                        </a>
+                        <a href="#pricing" class="btn btn-secondary btn-large">
+                            <i class="fas fa-tag"></i> View Pricing
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Creators</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">10M+</span>
+                            <span class="stat-label">Edits</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9★</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="https://placehold.co/800x600/4f46e5/white?text=AI+Video+Editor+Preview" alt="TERA AI Editor Preview">
+                    <div class="floating-card">
+                        <div class="floating-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <div>
+                            <strong>AI Processing</strong>
+                            <p style="font-size: 0.85rem; color: var(--text-secondary);">15 seconds left</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2 class="section-title">Everything You Need to Create Amazing Videos</h2>
+                <p class="section-subtitle">Professional editing tools powered by AI, designed for creators of all levels</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="feature-title">AI Auto Editing</h3>
+                    <p class="feature-desc">Our AI automatically detects the best moments, cuts silences, and suggests transitions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="feature-title">Smart Cut Detection</h3>
+                    <p class="feature-desc">Automatically identify and remove pauses, filler words, and awkward silences.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-closed-captioning"></i>
+                    </div>
+                    <h3 class="feature-title">Auto Subtitles</h3>
+                    <p class="feature-desc">Generate accurate subtitles in 50+ languages with perfect timing and styling.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eraser"></i>
+                    </div>
+                    <h3 class="feature-title">Background Removal</h3>
+                    <p class="feature-desc">Remove, replace, or blur backgrounds with one click using our AI.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-microphone-alt"></i>
+                    </div>
+                    <h3 class="feature-title">AI Voice Enhancement</h3>
+                    <p class="feature-desc">Clean up audio, remove noise, and enhance voice quality automatically.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-title">Analytics & Insights</h3>
+                    <p class="feature-desc">Track engagement, see which parts viewers watch, and optimize your content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Simple Process</span>
+                <h2 class="section-title">Three Steps to Professional Videos</h2>
+                <p class="section-subtitle">No learning curve. Start editing like a pro in minutes.</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Upload Your Video</h3>
+                    <p class="step-desc">Drag and drop any video file. We support MP4, MOV, AVI, and more up to 4K.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">AI Does the Magic</h3>
+                    <p class="step-desc">Our AI analyzes, transcribes, and enhances your video automatically.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Export & Share</h3>
+                    <p class="step-desc">Download your edited video in 1080p or 4K and share directly to social media.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Pricing</span>
+                <h2 class="section-title">Choose Your Perfect Plan</h2>
+                <p class="section-subtitle">Start for free, upgrade as you grow. No credit card required.</p>
+            </div>
+            
+            <div class="pricing-toggle">
+                <div class="toggle-btn">
+                    <span class="toggle-option active" onclick="togglePricing('monthly')">Monthly</span>
+                    <span class="toggle-option" onclick="togglePricing('yearly')">Yearly</span>
+                </div>
+                <span class="save-badge">Save 20% with yearly</span>
+            </div>
+            
+            <div class="pricing-grid" id="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Free</h3>
+                    <div class="pricing-price">₹0</div>
+                    <div class="pricing-period">forever</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 3 videos/month</li>
+                        <li><i class="fas fa-check"></i> 720p export</li>
+                        <li><i class="fas fa-check"></i> Auto subtitles (English)</li>
+                        <li><i class="fas fa-check"></i> Basic AI editing</li>
+                        <li><i class="fas fa-check"></i> Watermark</li>
+                    </ul>
+                    <button class="pricing-btn secondary">Start Free</button>
+                </div>
+                
+                <!-- Pro Plan (Popular) -->
+                <div class="pricing-card popular">
+                    <span class="popular-badge">Most Popular</span>
+                    <h3 class="pricing-name">Pro</h3>
+                    <div class="pricing-price" data-monthly="₹9" data-yearly="₹99">₹9</div>
+                    <div class="pricing-period" data-monthly="per month" data-yearly="per year">per month</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited videos</li>
+                        <li><i class="fas fa-check"></i> 4K export</li>
+                        <li><i class="fas fa-check"></i> Auto subtitles (50+ languages)</li>
+                        <li><i class="fas fa-check"></i> Advanced AI editing</li>
+                        <li><i class="fas fa-check"></i> No watermark</li>
+                        <li><i class="fas fa-check"></i> Background removal</li>
+                        <li><i class="fas fa-check"></i> Voice enhancement</li>
+                    </ul>
+                    <button class="pricing-btn">Get Started</button>
+                </div>
+                
+                <!-- Agency Plan -->
+                <div class="pricing-card">
+                    <h3 class="pricing-name">Agency</h3>
+                    <div class="pricing-price" data-monthly="₹29" data-yearly="₹299">₹29</div>
+                    <div class="pricing-period" data-monthly="per month" data-yearly="per year">per month</div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Everything in Pro</li>
+                        <li><i class="fas fa-check"></i> Team accounts (5)</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Custom branding</li>
+                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                    </ul>
+                    <button class="pricing-btn secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" style="background: var(--surface);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Testimonials</span>
+                <h2 class="section-title">Trusted by Creators Worldwide</h2>
+                <p class="section-subtitle">Join 50,000+ happy creators who are already editing smarter with TERA AI.</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"TERA AI has completely changed my workflow. What used to take hours now takes minutes. The auto subtitles are incredibly accurate!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RJ</div>
+                        <div class="author-info">
+                            <h4>Rahul Joshi</h4>
+                            <p>YouTube Creator, 500K subs</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The AI voice enhancement is magical! It makes my podcasts sound like they were recorded in a professional studio."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PS</div>
+                        <div class="author-info">
+                            <h4>Priya Sharma</h4>
+                            <p>Podcast Host</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about TERA AI Editor</p>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Is there a free trial?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Start with our free plan which includes 3 videos per month. No credit card required. Upgrade anytime to unlock more features.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>What video formats do you support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We support all major formats: MP4, MOV, AVI, MKV, WEBM, and more. Maximum file size is 2GB for free plan, 10GB for Pro and Agency plans.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Can I cancel my subscription anytime?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutely! You can cancel your subscription at any time with no questions asked. Your access continues until the end of your billing period.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Do you offer team discounts?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes! Our Agency plan includes 5 team accounts. For larger teams, please contact our sales team for custom pricing.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to Transform Your Videos?</h2>
+                <p class="cta-subtitle">Join 50,000+ creators who are already editing smarter with TERA AI.</p>
+                <div class="cta-buttons">
+                    <a href="/normal-edit" class="cta-btn">
+                        <i class="fas fa-play"></i> Start Editing Now
+                    </a>
+                    <a href="#pricing" class="cta-btn cta-btn-outline">
+                        <i class="fas fa-tag"></i> View Plans
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span class="logo-icon"><i class="fas fa-film"></i></span>
+                        TERA AI
+                    </div>
+                    <p class="footer-desc">
+                        India's most affordable AI video editor. Create amazing videos in minutes.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">API</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 TERA AI Editor. All rights reserved. Made with ❤️ in India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark');
+            const icon = document.querySelector('.btn-secondary i');
+            if (document.body.classList.contains('dark')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+
+        // Pricing Toggle
+        function togglePricing(period) {
+            const options = document.querySelectorAll('.toggle-option');
+            options.forEach(opt => opt.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            const prices = document.querySelectorAll('.pricing-price');
+            const periods = document.querySelectorAll('.pricing-period');
+            
+            prices.forEach(price => {
+                const monthlyPrice = price.getAttribute('data-monthly');
+                const yearlyPrice = price.getAttribute('data-yearly');
+                if (period === 'monthly') {
+                    price.textContent = monthlyPrice || price.textContent;
+                } else {
+                    price.textContent = yearlyPrice || price.textContent;
+                }
+            });
+            
+            periods.forEach(periodEl => {
+                periodEl.textContent = period === 'monthly' ? 'per month' : 'per year';
+            });
+        }
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('show');
+            
+            const icon = element.querySelector('i');
+            if (answer.classList.contains('show')) {
+                icon.className = 'fas fa-chevron-up';
+            } else {
+                icon.className = 'fas fa-chevron-down';
+            }
+        }
+    </script>
+</body>
+</html>

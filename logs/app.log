@@ -1,0 +1,356 @@
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00281s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01467s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00169s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:21:39 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00173s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01136s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00211s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:25:40 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 04:25:40 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 04:26:19 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:26:21 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:26:21 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:26:47 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:26:48 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:27:31 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:27:33 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not Found
+2026-03-01 04:30:06 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:30:06 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 04:30:06 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00260s] {'email_1': 'test@example.com', 'param_1': 1}
+2026-03-01 04:30:07 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 04:30:07 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Email already registered
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | [cached since 63.59s ago] {'email_1': 'test2@example.com', 'param_1': 1}
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | INSERT INTO users (id, email, password_hash, full_name, avatar_url, plan_type, credits_remaining, is_active, is_verified, updated_at, last_login) VALUES (%(id)s::UUID, %(email)s, %(password_hash)s, %(full_name)s, %(avatar_url)s, %(plan_type)s, %(credits_remaining)s, %(is_active)s, %(is_verified)s, %(updated_at)s, %(last_login)s) RETURNING users.created_at
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00306s] {'id': UUID('25e9d95c-71d5-4602-a1ec-b088ef46902f'), 'email': 'test2@example.com', 'password_hash': '$2b$12$YU/YGem.15yuTleiEzEtp.HkL5xh5CK2RqMuS249LSCX9IscX5ONq', 'full_name': 'Test User 2', 'avatar_url': None, 'plan_type': 'free', 'credits_remaining': 3, 'is_active': True, 'is_verified': False, 'updated_at': None, 'last_login': None}
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id, users.email, users.password_hash, users.full_name, users.avatar_url, users.plan_type, users.credits_remaining, users.is_active, users.is_verified, users.created_at, users.updated_at, users.last_login 
+FROM users 
+WHERE users.id = %(pk_1)s::UUID
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00172s] {'pk_1': UUID('25e9d95c-71d5-4602-a1ec-b088ef46902f')}
+2026-03-01 04:31:10 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 04:32:17 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:32:17 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 04:32:17 | Level 20 | sqlalchemy.log:info:159 | [cached since 131.1s ago] {'email_1': 'test2@example.com', 'param_1': 1}
+2026-03-01 04:32:17 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 04:32:17 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Invalid email or password
+2026-03-01 04:32:48 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:32:48 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 04:32:48 | Level 20 | sqlalchemy.log:info:159 | [cached since 162.4s ago] {'email_1': 'test2@example.com', 'param_1': 1}
+2026-03-01 04:32:49 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 04:33:46 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Not authenticated
+2026-03-01 04:40:21 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:40:21 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.id = %(id_1)s::UUID 
+ LIMIT %(param_1)s
+2026-03-01 04:40:21 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00527s] {'id_1': '25e9d95c-71d5-4602-a1ec-b088ef46902f', 'param_1': 1}
+2026-03-01 04:40:21 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 04:55:45 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00233s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.02504s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00564s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:55:59 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 04:55:59 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 04:59:35 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00097s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.008373s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00067s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 04:59:52 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 04:59:52 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 05:03:30 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00138s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01126s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00209s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:03:42 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 05:03:42 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 05:06:18 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00100s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01046s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00083s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:06:44 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 05:06:44 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 05:11:13 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00109s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.0173s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00269s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:16:19 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 05:16:19 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 05:20:52 | Level 20 | app.main:shutdown_event:76 | Shutting down TERA AI Editor
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00167s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01161s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00083s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 05:31:33 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 05:31:33 | Level 20 | app.main:startup_event:72 | Starting TERA AI Editor in development mode
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00175s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.014s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01854s ago] {'table_name': 'image_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00158s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.008132s ago] {'typname_1': 'imagestatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | CREATE TYPE imagestatus AS ENUM ('PENDING', 'PROCESSING', 'COMPLETED', 'FAILED')
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [no key 0.00105s] {}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | 
+CREATE TABLE image_projects (
+	id UUID NOT NULL, 
+	user_id UUID NOT NULL, 
+	title VARCHAR(255), 
+	description VARCHAR, 
+	status imagestatus NOT NULL, 
+	source_file VARCHAR(512), 
+	processed_file VARCHAR(512), 
+	thumbnail_url VARCHAR(512), 
+	file_size INTEGER, 
+	width INTEGER, 
+	height INTEGER, 
+	format VARCHAR(20), 
+	filters_applied JSON, 
+	settings JSON, 
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT now() NOT NULL, 
+	updated_at TIMESTAMP WITH TIME ZONE, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(user_id) REFERENCES users (id) ON DELETE CASCADE
+)
+
+
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | [no key 0.00107s] {}
+2026-03-01 11:03:05 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 11:03:05 | Level 20 | app.main:startup_event:73 | Starting TERA AI Editor in development mode
+2026-03-01 14:26:03 | Level 20 | app.main:shutdown_event:77 | Shutting down TERA AI Editor
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00126s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01328s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01774s ago] {'table_name': 'image_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00201s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.006047s ago] {'typname_1': 'imagestatus', 'nspname_1': 'pg_catalog'}
+2026-03-01 18:04:48 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-01 18:04:48 | Level 20 | app.main:startup_event:73 | Starting TERA AI Editor in development mode
+2026-03-01 18:10:18 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 18:10:18 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 18:10:18 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00583s] {'email_1': 'test@example.com', 'param_1': 1}
+2026-03-01 18:10:18 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 18:10:18 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Email already registered
+2026-03-01 18:11:14 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-01 18:11:14 | Level 20 | sqlalchemy.log:info:159 | SELECT users.id AS users_id, users.email AS users_email, users.password_hash AS users_password_hash, users.full_name AS users_full_name, users.avatar_url AS users_avatar_url, users.plan_type AS users_plan_type, users.credits_remaining AS users_credits_remaining, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login 
+FROM users 
+WHERE users.email = %(email_1)s 
+ LIMIT %(param_1)s
+2026-03-01 18:11:14 | Level 20 | sqlalchemy.log:info:159 | [cached since 55.58s ago] {'email_1': 'test@example.com', 'param_1': 1}
+2026-03-01 18:11:14 | Level 20 | sqlalchemy.log:info:159 | ROLLBACK
+2026-03-01 18:11:14 | Level 40 | app.core.exceptions:http_exception_handler:29 | HTTP exception: Invalid email or password
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | select pg_catalog.version()
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | select current_schema()
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | show standard_conforming_strings
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [raw sql] {}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | BEGIN (implicit)
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00146s] {'table_name': 'users', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.01632s ago] {'table_name': 'video_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_class.relname 
+FROM pg_catalog.pg_class JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_class.relnamespace 
+WHERE pg_catalog.pg_class.relname = %(table_name)s AND pg_catalog.pg_class.relkind = ANY (ARRAY[%(param_1)s, %(param_2)s, %(param_3)s, %(param_4)s, %(param_5)s]) AND pg_catalog.pg_table_is_visible(pg_catalog.pg_class.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.02086s ago] {'table_name': 'image_projects', 'param_1': 'r', 'param_2': 'p', 'param_3': 'f', 'param_4': 'v', 'param_5': 'm', 'nspname_1': 'pg_catalog'}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [generated in 0.00134s] {'typname_1': 'videostatus', 'nspname_1': 'pg_catalog'}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | SELECT pg_catalog.pg_type.typname 
+FROM pg_catalog.pg_type JOIN pg_catalog.pg_namespace ON pg_catalog.pg_namespace.oid = pg_catalog.pg_type.typnamespace 
+WHERE pg_catalog.pg_type.typname = %(typname_1)s AND pg_catalog.pg_type_is_visible(pg_catalog.pg_type.oid) AND pg_catalog.pg_namespace.nspname != %(nspname_1)s
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | [cached since 0.009276s ago] {'typname_1': 'imagestatus', 'nspname_1': 'pg_catalog'}
+2026-03-03 10:08:21 | Level 20 | sqlalchemy.log:info:159 | COMMIT
+2026-03-03 10:08:21 | Level 20 | app.main:startup_event:73 | Starting TERA AI Editor in development mode

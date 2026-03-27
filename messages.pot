@@ -1,0 +1,643 @@
+# Translations template for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-02-27 18:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: normal_edit.html:6 templates/normal_edit.html:6
+msgid "Normal Mode"
+msgstr ""
+
+#: normal_edit.html:532 normal_edit.html:723 templates/normal_edit.html:532
+#: templates/normal_edit.html:723
+msgid "Dark Mode"
+msgstr ""
+
+#: normal_edit.html:551 templates/normal_edit.html:551
+msgid "AI Video Editor"
+msgstr ""
+
+#: normal_edit.html:552 templates/normal_edit.html:552
+msgid "NORMAL MODE"
+msgstr ""
+
+#: normal_edit.html:555 templates/normal_edit.html:555
+msgid "Upload Video"
+msgstr ""
+
+#: normal_edit.html:562 templates/normal_edit.html:562
+msgid "Video Editor"
+msgstr ""
+
+#: normal_edit.html:563 templates/normal_edit.html:563
+msgid "Image Editor"
+msgstr ""
+
+#: normal_edit.html:573 templates/normal_edit.html:573
+msgid "Video Info"
+msgstr ""
+
+#: normal_edit.html:575 normal_edit.html:651 templates/normal_edit.html:575
+#: templates/normal_edit.html:651
+msgid "File Name:"
+msgstr ""
+
+#: normal_edit.html:579 templates/normal_edit.html:579
+msgid "Duration:"
+msgstr ""
+
+#: normal_edit.html:583 templates/normal_edit.html:583
+msgid "Resolution:"
+msgstr ""
+
+#: normal_edit.html:587 normal_edit.html:659 templates/normal_edit.html:587
+#: templates/normal_edit.html:659
+msgid "File Size:"
+msgstr ""
+
+#: normal_edit.html:602 templates/normal_edit.html:602
+msgid "Video Tools"
+msgstr ""
+
+#: normal_edit.html:604 templates/normal_edit.html:604
+msgid "Trim"
+msgstr ""
+
+#: normal_edit.html:605 templates/normal_edit.html:605
+msgid "Split"
+msgstr ""
+
+#: normal_edit.html:606 normal_edit.html:675 templates/normal_edit.html:606
+#: templates/normal_edit.html:675
+msgid "Rotate"
+msgstr ""
+
+#: normal_edit.html:607 normal_edit.html:673 templates/normal_edit.html:607
+#: templates/normal_edit.html:673
+msgid "Crop"
+msgstr ""
+
+#: normal_edit.html:608 templates/normal_edit.html:608
+msgid "Volume"
+msgstr ""
+
+#: normal_edit.html:609 templates/normal_edit.html:609
+msgid "Speed"
+msgstr ""
+
+#: normal_edit.html:610 templates/normal_edit.html:610
+msgid "Audio"
+msgstr ""
+
+#: normal_edit.html:611 templates/normal_edit.html:611
+msgid "Text"
+msgstr ""
+
+#: normal_edit.html:616 templates/normal_edit.html:616
+msgid "Video Filters"
+msgstr ""
+
+#: normal_edit.html:618 normal_edit.html:686 templates/normal_edit.html:618
+#: templates/normal_edit.html:686
+msgid "Vintage"
+msgstr ""
+
+#: normal_edit.html:619 normal_edit.html:687 templates/normal_edit.html:619
+#: templates/normal_edit.html:687
+msgid "B&W"
+msgstr ""
+
+#: normal_edit.html:620 normal_edit.html:688 templates/normal_edit.html:620
+#: templates/normal_edit.html:688
+msgid "Bright"
+msgstr ""
+
+#: normal_edit.html:621 normal_edit.html:689 templates/normal_edit.html:621
+#: templates/normal_edit.html:689
+msgid "Dark"
+msgstr ""
+
+#: normal_edit.html:622 normal_edit.html:690 templates/normal_edit.html:622
+#: templates/normal_edit.html:690
+msgid "Warm"
+msgstr ""
+
+#: normal_edit.html:623 normal_edit.html:691 templates/normal_edit.html:623
+#: templates/normal_edit.html:691
+msgid "Cool"
+msgstr ""
+
+#: normal_edit.html:624 normal_edit.html:692 templates/normal_edit.html:624
+#: templates/normal_edit.html:692
+msgid "Sepia"
+msgstr ""
+
+#: normal_edit.html:625 normal_edit.html:693 templates/normal_edit.html:625
+#: templates/normal_edit.html:693
+msgid "Glow"
+msgstr ""
+
+#: normal_edit.html:626 normal_edit.html:694 templates/normal_edit.html:626
+#: templates/normal_edit.html:694
+msgid "Blur"
+msgstr ""
+
+#: normal_edit.html:627 normal_edit.html:695 templates/normal_edit.html:627
+#: templates/normal_edit.html:695
+msgid "Sharpen"
+msgstr ""
+
+#: normal_edit.html:628 normal_edit.html:696 templates/normal_edit.html:628
+#: templates/normal_edit.html:696
+msgid "Cartoon"
+msgstr ""
+
+#: normal_edit.html:633 templates/normal_edit.html:633
+msgid "Export Video"
+msgstr ""
+
+#: normal_edit.html:634 normal_edit.html:704 templates/normal_edit.html:634
+#: templates/normal_edit.html:704
+msgid "Reset All"
+msgstr ""
+
+#: normal_edit.html:642 templates/normal_edit.html:642
+msgid "Image Preview"
+msgstr ""
+
+#: normal_edit.html:645 templates/normal_edit.html:645
+msgid "Upload an image to start editing"
+msgstr ""
+
+#: normal_edit.html:649 templates/normal_edit.html:649
+msgid "Image Info"
+msgstr ""
+
+#: normal_edit.html:655 templates/normal_edit.html:655
+msgid "Dimensions:"
+msgstr ""
+
+#: normal_edit.html:663 templates/normal_edit.html:663
+msgid "Format:"
+msgstr ""
+
+#: normal_edit.html:671 templates/normal_edit.html:671
+msgid "Image Tools"
+msgstr ""
+
+#: normal_edit.html:674 templates/normal_edit.html:674
+msgid "Resize"
+msgstr ""
+
+#: normal_edit.html:676 templates/normal_edit.html:676
+msgid "Flip"
+msgstr ""
+
+#: normal_edit.html:677 templates/normal_edit.html:677
+msgid "Brightness"
+msgstr ""
+
+#: normal_edit.html:678 templates/normal_edit.html:678
+msgid "Contrast"
+msgstr ""
+
+#: normal_edit.html:684 templates/normal_edit.html:684
+msgid "Image Filters"
+msgstr ""
+
+#: normal_edit.html:697 templates/normal_edit.html:697
+msgid "Pixelate"
+msgstr ""
+
+#: normal_edit.html:703 templates/normal_edit.html:703
+msgid "Export Image"
+msgstr ""
+
+#: normal_edit.html:718 normal_edit.html:738 templates/normal_edit.html:718
+#: templates/normal_edit.html:738
+msgid "Light Mode"
+msgstr ""
+
+#: normal_edit.html:827 templates/normal_edit.html:827
+msgid "Enter start time (seconds):"
+msgstr ""
+
+#: normal_edit.html:828 templates/normal_edit.html:828
+msgid "Enter end time (seconds):"
+msgstr ""
+
+#: normal_edit.html:830 templates/normal_edit.html:830
+msgid "Trim from"
+msgstr ""
+
+#: normal_edit.html:830 templates/normal_edit.html:830
+msgid "to"
+msgstr ""
+
+#: normal_edit.html:830 normal_edit.html:837 normal_edit.html:870
+#: templates/normal_edit.html:830 templates/normal_edit.html:837
+#: templates/normal_edit.html:870
+msgid "Feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:835 templates/normal_edit.html:835
+msgid "Enter split time (seconds):"
+msgstr ""
+
+#: normal_edit.html:837 templates/normal_edit.html:837
+msgid "Split at"
+msgstr ""
+
+#: normal_edit.html:842 normal_edit.html:958 templates/normal_edit.html:842
+#: templates/normal_edit.html:958
+msgid "Rotate feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:846 normal_edit.html:950 templates/normal_edit.html:846
+#: templates/normal_edit.html:950
+msgid "Crop feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:850
+msgid "Enter volume (0-200%):"
+msgstr ""
+
+#: normal_edit.html:857
+msgid "Enter speed (0.5-2.0):"
+msgstr ""
+
+#: normal_edit.html:864 templates/normal_edit.html:864
+msgid "Add audio track feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:868 templates/normal_edit.html:868
+msgid "Enter text to overlay:"
+msgstr ""
+
+#: normal_edit.html:870 templates/normal_edit.html:870
+msgid "Add text"
+msgstr ""
+
+#: normal_edit.html:878 templates/normal_edit.html:878
+msgid "Video export started!"
+msgstr ""
+
+#: normal_edit.html:899 templates/normal_edit.html:899
+msgid "Upload Image"
+msgstr ""
+
+#: normal_edit.html:954 templates/normal_edit.html:954
+msgid "Resize feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:962 templates/normal_edit.html:962
+msgid "Flip feature coming soon!"
+msgstr ""
+
+#: normal_edit.html:966 templates/normal_edit.html:966
+msgid "Brightness adjustment coming soon!"
+msgstr ""
+
+#: normal_edit.html:970 templates/normal_edit.html:970
+msgid "Contrast adjustment coming soon!"
+msgstr ""
+
+#: normal_edit.html:977 templates/normal_edit.html:977
+msgid "Image export started!"
+msgstr ""
+
+#: templates/normal_edit.html:850
+msgid "Enter volume (0-200 percent):"
+msgstr ""
+
+#: templates/normal_edit.html:857
+msgid "Enter speed (0.5 to 2.0):"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/_termui_impl.py:613
+#, python-brace-format
+msgid "{editor}: Editing failed"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/_termui_impl.py:617
+#, python-brace-format
+msgid "{editor}: Editing failed: {e}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1114
+#: venv/lib/python3.12/site-packages/click/core.py:1151
+#, python-brace-format
+msgid "{text} {deprecated_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1170
+msgid "Options"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1245
+#, python-brace-format
+msgid "Got unexpected extra argument ({args})"
+msgid_plural "Got unexpected extra arguments ({args})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1264
+#, python-brace-format
+msgid "DeprecationWarning: The command {name!r} is deprecated.{extra_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1448
+msgid "Aborted!"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1822
+msgid "Commands"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1853
+msgid "Missing command."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:1931
+#, python-brace-format
+msgid "No such command {name!r}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2355
+msgid "Value must be an iterable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2378
+#, python-brace-format
+msgid "Takes {nargs} values but 1 was given."
+msgid_plural "Takes {nargs} values but {len} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:2567
+#, python-brace-format
+msgid ""
+"DeprecationWarning: The {param_type} {name!r} is "
+"deprecated.{extra_message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:3015
+#, python-brace-format
+msgid "env var: {var}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:3018
+#, python-brace-format
+msgid "default: {default}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:3022
+msgid "required"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/core.py:3082
+msgid "(dynamic)"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:465
+#, python-format
+msgid "%(prog)s, version %(version)s"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:522
+msgid "Show the version and exit."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/decorators.py:548
+msgid "Show this message and exit."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:50
+#: venv/lib/python3.12/site-packages/click/exceptions.py:89
+#, python-brace-format
+msgid "Error: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:81
+#, python-brace-format
+msgid "Try '{command} {option}' for help."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:130
+#, python-brace-format
+msgid "Invalid value: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:132
+#, python-brace-format
+msgid "Invalid value for {param_hint}: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:190
+msgid "Missing argument"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:192
+msgid "Missing option"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:194
+msgid "Missing parameter"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:196
+#, python-brace-format
+msgid "Missing {param_type}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:203
+#, python-brace-format
+msgid "Missing parameter: {param_name}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:223
+#, python-brace-format
+msgid "No such option: {name}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:235
+#, python-brace-format
+msgid "Did you mean {possibility}?"
+msgid_plural "(Possible options: {possibilities})"
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:282
+msgid "unknown error"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/exceptions.py:289
+#, python-brace-format
+msgid "Could not open file {filename!r}: {message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/formatting.py:156
+msgid "Usage:"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:199
+#, python-brace-format
+msgid "Argument {name!r} takes {nargs} values."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:381
+#, python-brace-format
+msgid "Option {name!r} does not take a value."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/parser.py:444
+#, python-brace-format
+msgid "Option {name!r} requires an argument."
+msgid_plural "Option {name!r} requires {nargs} arguments."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/shell_completion.py:332
+msgid "Shell completion is not supported for Bash versions older than 4.4."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/shell_completion.py:339
+msgid "Couldn't detect Bash version, shell completion is not supported."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:165
+msgid "Repeat for confirmation"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:181
+msgid "Error: The value you entered was invalid."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:183
+#, python-brace-format
+msgid "Error: {e.message}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:194
+msgid "Error: The two entered values do not match."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:253
+msgid "Error: invalid input"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/termui.py:872
+msgid "Press any key to continue..."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:332
+#, python-brace-format
+msgid ""
+"Choose from:\n"
+"\t{choices}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:369
+#, python-brace-format
+msgid "{value!r} is not {choice}."
+msgid_plural "{value!r} is not one of {choices}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:460
+#, python-brace-format
+msgid "{value!r} does not match the format {format}."
+msgid_plural "{value!r} does not match the formats {formats}."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:482
+#, python-brace-format
+msgid "{value!r} is not a valid {number_type}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:538
+#, python-brace-format
+msgid "{value} is not in the range {range}."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:719
+#, python-brace-format
+msgid "{value!r} is not a valid boolean. Recognized values: {states}"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:747
+#, python-brace-format
+msgid "{value!r} is not a valid UUID."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:937
+msgid "file"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:939
+msgid "directory"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:941
+msgid "path"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:988
+#, python-brace-format
+msgid "{name} {filename!r} does not exist."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:997
+#, python-brace-format
+msgid "{name} {filename!r} is a file."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1005
+#, python-brace-format
+msgid "{name} {filename!r} is a directory."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1014
+#, python-brace-format
+msgid "{name} {filename!r} is not readable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1023
+#, python-brace-format
+msgid "{name} {filename!r} is not writable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1032
+#, python-brace-format
+msgid "{name} {filename!r} is not executable."
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/click/types.py:1099
+#, python-brace-format
+msgid "{len_type} values are required, but {len_value} was given."
+msgid_plural "{len_type} values are required, but {len_value} were given."
+msgstr[0] ""
+msgstr[1] ""
+
+#: venv/lib/python3.12/site-packages/sympy/solvers/simplex.py:563
+msgid "x"
+msgstr ""
+
+#: venv/lib/python3.12/site-packages/sympy/solvers/simplex.py:564
+msgid "y"
+msgstr ""
+

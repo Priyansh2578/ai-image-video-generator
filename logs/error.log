@@ -1,0 +1,12 @@
+2026-03-01 04:26:19.882 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:26:21.180 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:26:21.736 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:26:47.552 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:26:48.079 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:27:31.854 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:27:33.375 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not Found
+2026-03-01 04:30:07.015 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Email already registered
+2026-03-01 04:32:17.957 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Invalid email or password
+2026-03-01 04:33:46.871 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Not authenticated
+2026-03-01 18:10:18.689 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Email already registered
+2026-03-01 18:11:14.651 | Level 40 | app.core.exceptions:http_exception_handler:29 - HTTP exception: Invalid email or password

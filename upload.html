@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video - TERA AI Editor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .step-indicator {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 1.8em;
+        }
+
+        .upload-area {
+            border: 3px dashed #667eea;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            background: #f8faff;
+            cursor: pointer;
+            margin: 30px 0;
+            transition: all 0.3s;
+        }
+
+        .upload-area:hover {
+            background: #f0f4ff;
+            border-color: #764ba2;
+        }
+
+        .upload-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        .upload-text {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .upload-hint {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #666;
+            border: 2px solid #eee;
+        }
+
+        .btn-secondary:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .info-box {
+            background: #f8faff;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .info-box i {
+            color: #667eea;
+            margin-right: 8px;
+        }
+
+        #fileInput {
+            display: none;
+        }
+
+        .file-name {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e8f0fe;
+            border-radius: 8px;
+            color: #333;
+            display: none;
+        }
+
+        #uploadBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="step-indicator">1</div>
+            <h2>Upload Your Video</h2>
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <div class="upload-icon">📁</div>
+            <div class="upload-text" id="uploadText">Click to upload or drag and drop</div>
+            <div class="upload-hint">MP4, MOV, AVI • Max 100MB</div>
+            <input type="file" id="fileInput" accept="video/*">
+        </div>
+
+        <div class="file-name" id="fileName"></div>
+
+        <div class="actions">
+            <button class="btn btn-secondary" onclick="window.location.href='dashboard.html'">← Back</button>
+            <button class="btn btn-primary" id="uploadBtn">Upload →</button>
+        </div>
+
+        <div class="info-box">
+            <i>💡</i> Upload karte hi AI automatic edit karna start kar dega. 20 videos/month in ₹19 plan.
+        </div>
+    </div>
+
+    <script>
+        let selectedFile = null;
+
+        // Upload area click
+        document.getElementById('uploadArea').onclick = () => {
+            document.getElementById('fileInput').click();
+        };
+
+        // File selection
+        document.getElementById('fileInput').onchange = (e) => {
+            selectedFile = e.target.files[0];
+            if (selectedFile) {
+                document.getElementById('uploadText').innerHTML = `Selected: ${selectedFile.name}`;
+                document.getElementById('fileName').style.display = 'block';
+                document.getElementById('fileName').innerHTML = `✅ ${selectedFile.name} (${(selectedFile.size/1024/1024).toFixed(2)} MB)`;
+                document.getElementById('uploadBtn').disabled = false;
+            }
+        };
+
+        // Upload button click
+        document.getElementById('uploadBtn').onclick = async () => {
+            if (!selectedFile) {
+                alert('Please select a video file first!');
+                return;
+            }
+
+            // Show loading state
+            const uploadBtn = document.getElementById('uploadBtn');
+            uploadBtn.innerHTML = '⏳ Uploading...';
+            uploadBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+            formData.append('title', selectedFile.name);
+
+            const token = localStorage.getItem('token');
+
+            // Check if user is logged in
+            if (!token) {
+                alert('Please login first!');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:8000/api/v1/videos/upload', {
+                    method: 'POST',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store project ID for status tracking
+                    localStorage.setItem('currentProjectId', data.project_id);
+                    // Redirect to processing page
+                    window.location.href = 'processing.html';
+                } else {
+                    alert('Upload failed: ' + (data.detail || 'Unknown error'));
+                    uploadBtn.innerHTML = 'Upload →';
+                    uploadBtn.disabled = false;
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                alert('Failed to connect to server. Make sure backend is running on port 8000.');
+                uploadBtn.innerHTML = 'Upload →';
+                uploadBtn.disabled = false;
+            }
+        };
+
+        // Disable upload button initially
+        document.getElementById('uploadBtn').disabled = true;
+    </script>
+</body>
+</html>

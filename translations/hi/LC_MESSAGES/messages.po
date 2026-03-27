@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TERA AI EDITOR 1.0\n"
+"Report-Msg-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-28 09:00+0000\n"
+"PO-Revision-Date: 2026-02-28 09:00+0000\n"
+"Last-Translator: \n"
+"Language: hi\n"
+"Language-Team: Hindi\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "TERA AI Editor"
+msgstr "टेरा एआई एडिटर"
+
+msgid "India ka sabse sasta AI Video Editor! ₹9 mein 2 mahine!"
+msgstr "भारत का सबसे सस्ता एआई वीडियो एडिटर! ₹9 में 2 महीने!"
+
+msgid "Home"
+msgstr "होम"
+
+msgid "Normal Edit"
+msgstr "सामान्य संपादन"
+
+msgid "Apna video yahan drop karo!"
+msgstr "अपना वीडियो यहाँ ड्रॉप करो!"
+
+msgid "ya click karo upload karne ke liye"
+msgstr "या क्लिक करो अपलोड करने के लिए"
+
+msgid "No signup required"
+msgstr "कोई साइनअप नहीं"
+
+msgid "Fast processing"
+msgstr "तेज़ प्रोसेसिंग"
+
+msgid "Anime magic"
+msgstr "एनीमे जादू"
+
+msgid "Processing your video..."
+msgstr "आपका वीडियो प्रोसेस हो रहा है..."
+
+msgid "Mission Complete!"
+msgstr "मिशन पूरा!"
+
+msgid "Tera anime video ready hai!"
+msgstr "तेरा एनीमे वीडियो तैयार है!"
+
+msgid "Download Anime Video"
+msgstr "एनीमे वीडियो डाउनलोड करें"
+
+msgid "Nayi video banayein"
+msgstr "नई वीडियो बनाएं"
+
+msgid "Normal Mode"
+msgstr "सामान्य मोड"
+
+msgid "AI Video Editor"
+msgstr "एआई वीडियो एडिटर"
+
+msgid "Upload Video"
+msgstr "वीडियो अपलोड करें"
+
+msgid "Video Editor"
+msgstr "वीडियो एडिटर"
+
+msgid "Image Editor"
+msgstr "इमेज एडिटर"
+
+msgid "Video Info"
+msgstr "वीडियो जानकारी"
+
+msgid "File Name:"
+msgstr "फ़ाइल नाम:"
+
+msgid "Duration:"
+msgstr "अवधि:"
+
+msgid "Resolution:"
+msgstr "रिज़ॉल्यूशन:"
+
+msgid "File Size:"
+msgstr "फ़ाइल आकार:"
+
+msgid "Dark Mode"
+msgstr "डार्क मोड"
+
+msgid "Light Mode"
+msgstr "लाइट मोड"

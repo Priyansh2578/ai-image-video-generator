@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Editor - Normal Mode</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .editor-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-top: 20px;
+        }
+
+        body.dark-mode .editor-container {
+            background: rgba(30, 30, 46, 0.95);
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(40, 167, 69, 0.3);
+        }
+
+        body.dark-mode .upload-btn {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        /* Tabs */
+        .tab-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+
+        body.dark-mode .tab-container {
+            border-bottom-color: #4a4a6a;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #495057;
+        }
+
+        body.dark-mode .tab-btn {
+            background: #2d2d44;
+            border-color: #5a5a7a;
+            color: white;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            border-color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .preview-section {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/9;
+        }
+
+        #videoPreview {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .image-preview-section {
+            background: #000;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 16/9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #imagePreview {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .video-info {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        body.dark-mode .video-info {
+            background: #2d2d44;
+            color: white;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        body.dark-mode .info-item {
+            border-bottom-color: #4a4a6a;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-section {
+            margin-bottom: 20px;
+        }
+
+        #seekBar {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #seekBar::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            border: 2px solid #667eea;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        body.dark-mode .time-display {
+            color: #aaa;
+        }
+
+        .tools-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        body.dark-mode .tools-section {
+            background: #2d2d44;
+            color: white;
+        }
+
+        .tools-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .tool-btn {
+            background: white;
+            border: 2px solid #e9ecef;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #495057;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        body.dark-mode .tool-btn {
+            background: #3d3d5c;
+            border-color: #5a5a7a;
+            color: white;
+        }
+
+        .tool-btn:hover {
+            border-color: #667eea;
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode .tool-btn:hover {
+            background: #4d4d7a;
+            border-color: #667eea;
+        }
+
+        .filters-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        body.dark-mode .filters-section {
+            background: #2d2d44;
+            color: white;
+        }
+
+        .filters-section h3 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .filters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .filter-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .filter-card {
+            background: #3d3d5c;
+            border-color: #5a5a7a;
+            color: white;
+        }
+
+        .filter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1;
+        }
+
+        .filter-card span {
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+        }
+
+        .filter-card:hover {
+            transform: translateY(-2px);
+            border-color: #667eea;
+        }
+
+        .filter-card.active {
+            border-color: transparent;
+        }
+
+        .filter-card.active::before {
+            opacity: 1;
+        }
+
+        .filter-card.active span {
+            color: white;
+        }
+
+        /* Filter preview effects */
+        .filter-vintage { filter: sepia(0.5) contrast(1.2); }
+        .filter-bw { filter: grayscale(1); }
+        .filter-bright { filter: brightness(1.3); }
+        .filter-dark { filter: brightness(0.7); }
+        .filter-warm { filter: sepia(0.3) brightness(1.1); }
+        .filter-cool { filter: hue-rotate(20deg) brightness(1.1); }
+        .filter-sepia { filter: sepia(0.8); }
+        .filter-glow { filter: brightness(1.2) contrast(1.1); }
+        .filter-blur { filter: blur(2px); }
+        .filter-sharpen { filter: contrast(1.5); }
+        .filter-cartoon { filter: contrast(1.5) brightness(1.2); }
+        .filter-pixelate { filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="pixelate"><feFlood x="0" y="0" width="10" height="10"/></filter></svg>#pixelate'); image-rendering: pixelated; }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .export-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .reset-btn {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .export-btn:hover, .reset-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 600px) {
+            .editor-container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <!-- NO THEME TOGGLE BUTTON HERE - IT'S ONLY ON HOME PAGE -->
+
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="editor-container">
+        <div class="header">
+            <h1>
+                <span>🎬 AI Video Editor</span>
+                <span style="font-size: 0.4em; background: #667eea; color: white; padding: 5px 10px; border-radius: 20px;">NORMAL MODE</span>
+            </h1>
+            <button class="upload-btn" onclick="document.getElementById('videoInput').click()" id="videoUploadBtn">
+                📁 Upload Video
+            </button>
+            <input type="file" id="videoInput" accept="video/*" style="display: none;">
+        </div>
+
+        <!-- Tabs for Video/Image Editor -->
+        <div class="tab-container">
+            <button class="tab-btn active" onclick="switchTab('video')" id="tabVideo">🎬 Video Editor</button>
+            <button class="tab-btn" onclick="switchTab('image')" id="tabImage">🖼️ Image Editor</button>
+        </div>
+
+        <!-- Video Editor Content -->
+        <div id="videoContent" class="tab-content active">
+            <div class="main-content">
+                <div class="preview-section">
+                    <video id="videoPreview" controls></video>
+                </div>
+                <div class="video-info">
+                    <h3 style="margin-bottom: 15px;">📊 Video Info</h3>
+                    <div class="info-item">
+                        <span>File Name:</span>
+                        <span id="fileName">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Duration:</span>
+                        <span id="fileDuration">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Resolution:</span>
+                        <span id="fileResolution">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>File Size:</span>
+                        <span id="fileSize">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-section">
+                <input type="range" id="seekBar" value="0" min="0" max="100" step="0.1">
+                <div class="time-display">
+                    <span id="currentTime">00:00</span>
+                    <span id="totalTime">00:00</span>
+                </div>
+            </div>
+
+            <div class="tools-section">
+                <h3>✂️ Video Tools</h3>
+                <div class="tools-grid">
+                    <button class="tool-btn" onclick="trimVideo()"><span>✂️</span> Trim</button>
+                    <button class="tool-btn" onclick="splitVideo()"><span>✂️</span> Split</button>
+                    <button class="tool-btn" onclick="rotateVideo()"><span>🔄</span> Rotate</button>
+                    <button class="tool-btn" onclick="cropVideo()"><span>🔍</span> Crop</button>
+                    <button class="tool-btn" onclick="adjustVolume()"><span>🔊</span> Volume</button>
+                    <button class="tool-btn" onclick="adjustSpeed()"><span>⏱️</span> Speed</button>
+                    <button class="tool-btn" onclick="addAudio()"><span>🎵</span> Audio</button>
+                    <button class="tool-btn" onclick="addText()"><span>📝</span> Text</button>
+                </div>
+            </div>
+
+            <div class="filters-section">
+                <h3>🎨 Video Filters</h3>
+                <div class="filters-grid">
+                    <div class="filter-card" onclick="applyFilter('vintage')" id="filter-vintage"><span>Vintage</span></div>
+                    <div class="filter-card" onclick="applyFilter('bw')" id="filter-bw"><span>B&W</span></div>
+                    <div class="filter-card" onclick="applyFilter('bright')" id="filter-bright"><span>Bright</span></div>
+                    <div class="filter-card" onclick="applyFilter('dark')" id="filter-dark"><span>Dark</span></div>
+                    <div class="filter-card" onclick="applyFilter('warm')" id="filter-warm"><span>Warm</span></div>
+                    <div class="filter-card" onclick="applyFilter('cool')" id="filter-cool"><span>Cool</span></div>
+                    <div class="filter-card" onclick="applyFilter('sepia')" id="filter-sepia"><span>Sepia</span></div>
+                    <div class="filter-card" onclick="applyFilter('glow')" id="filter-glow"><span>Glow</span></div>
+                    <div class="filter-card" onclick="applyFilter('blur')" id="filter-blur"><span>Blur</span></div>
+                    <div class="filter-card" onclick="applyFilter('sharpen')" id="filter-sharpen"><span>Sharpen</span></div>
+                    <div class="filter-card" onclick="applyFilter('cartoon')" id="filter-cartoon"><span>Cartoon</span></div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="export-btn" onclick="exportVideo()">📥 Export Video</button>
+                <button class="reset-btn" onclick="resetFilters()">🔄 Reset All</button>
+            </div>
+        </div>
+
+        <!-- Image Editor Content -->
+        <div id="imageContent" class="tab-content">
+            <div class="main-content">
+                <div class="image-preview-section">
+                    <img id="imagePreview" src="#" alt="Image Preview" style="display: none;">
+                    <div id="imagePlaceholder" style="color: white; text-align: center;">
+                        <p style="font-size: 3em; margin-bottom: 10px;">🖼️</p>
+                        <p>Upload an image to start editing</p>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 style="margin-bottom: 15px;">🖼️ Image Info</h3>
+                    <div class="info-item">
+                        <span>File Name:</span>
+                        <span id="imageFileName">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Dimensions:</span>
+                        <span id="imageDimensions">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>File Size:</span>
+                        <span id="imageFileSize">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Format:</span>
+                        <span id="imageFormat">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Editing Tools -->
+            <div class="tools-section">
+                <h3>✂️ Image Tools</h3>
+                <div class="tools-grid">
+                    <button class="tool-btn" onclick="cropImage()"><span>✂️</span> Crop</button>
+                    <button class="tool-btn" onclick="resizeImage()"><span>📏</span> Resize</button>
+                    <button class="tool-btn" onclick="rotateImage()"><span>🔄</span> Rotate</button>
+                    <button class="tool-btn" onclick="flipImage()"><span>↔️</span> Flip</button>
+                    <button class="tool-btn" onclick="adjustBrightness()"><span>☀️</span> Brightness</button>
+                    <button class="tool-btn" onclick="adjustContrast()"><span>🎯</span> Contrast</button>
+                </div>
+            </div>
+
+            <!-- Image Filters -->
+            <div class="filters-section">
+                <h3>🎨 Image Filters</h3>
+                <div class="filters-grid">
+                    <div class="filter-card" onclick="applyImageFilter('vintage')" id="img-filter-vintage"><span>Vintage</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('bw')" id="img-filter-bw"><span>B&W</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('bright')" id="img-filter-bright"><span>Bright</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('dark')" id="img-filter-dark"><span>Dark</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('warm')" id="img-filter-warm"><span>Warm</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('cool')" id="img-filter-cool"><span>Cool</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('sepia')" id="img-filter-sepia"><span>Sepia</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('glow')" id="img-filter-glow"><span>Glow</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('blur')" id="img-filter-blur"><span>Blur</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('sharpen')" id="img-filter-sharpen"><span>Sharpen</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('cartoon')" id="img-filter-cartoon"><span>Cartoon</span></div>
+                    <div class="filter-card" onclick="applyImageFilter('pixelate')" id="img-filter-pixelate"><span>Pixelate</span></div>
+                </div>
+            </div>
+
+            <!-- Image Action Buttons -->
+            <div class="action-buttons">
+                <button class="export-btn" onclick="exportImage()">📥 Export Image</button>
+                <button class="reset-btn" onclick="resetImageFilters()">🔄 Reset All</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load saved theme from localStorage (set by home page)
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.remove('light-mode');
+            document.body.classList.add('dark-mode');
+        }
+
+        // Video Editor Variables
+        const videoInput = document.getElementById('videoInput');
+        const videoPreview = document.getElementById('videoPreview');
+        const seekBar = document.getElementById('seekBar');
+        const currentTimeSpan = document.getElementById('currentTime');
+        const totalTimeSpan = document.getElementById('totalTime');
+        const loading = document.getElementById('loading');
+        
+        let currentFilter = null;
+        let originalVideo = null;
+
+        // Tab switching
+        function switchTab(tab) {
+            document.getElementById('tabVideo').classList.remove('active');
+            document.getElementById('tabImage').classList.remove('active');
+            
+            document.getElementById('videoContent').classList.remove('active');
+            document.getElementById('imageContent').classList.remove('active');
+            
+            if (tab === 'video') {
+                document.getElementById('tabVideo').classList.add('active');
+                document.getElementById('videoContent').classList.add('active');
+                document.getElementById('videoUploadBtn').style.display = 'block';
+            } else {
+                document.getElementById('tabImage').classList.add('active');
+                document.getElementById('imageContent').classList.add('active');
+                document.getElementById('videoUploadBtn').style.display = 'none';
+            }
+        }
+
+        // Video Functions
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        videoInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                videoPreview.src = url;
+                originalVideo = url;
+                
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+                
+                videoPreview.addEventListener('loadedmetadata', function() {
+                    document.getElementById('fileDuration').textContent = formatTime(videoPreview.duration);
+                    document.getElementById('fileResolution').textContent = videoPreview.videoWidth + 'x' + videoPreview.videoHeight;
+                    totalTimeSpan.textContent = formatTime(videoPreview.duration);
+                    seekBar.max = videoPreview.duration;
+                });
+            }
+        });
+
+        videoPreview.addEventListener('timeupdate', function() {
+            seekBar.value = videoPreview.currentTime;
+            currentTimeSpan.textContent = formatTime(videoPreview.currentTime);
+        });
+
+        seekBar.addEventListener('input', function() {
+            videoPreview.currentTime = seekBar.value;
+        });
+
+        function applyFilter(filterName) {
+            document.querySelectorAll('#videoContent .filter-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            document.getElementById(`filter-${filterName}`).classList.add('active');
+            
+            videoPreview.className = '';
+            videoPreview.classList.add(`filter-${filterName}`);
+            currentFilter = filterName;
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('#videoContent .filter-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            videoPreview.className = '';
+            currentFilter = null;
+        }
+
+        function trimVideo() {
+            const start = prompt("Enter start time (seconds):", "0");
+            const end = prompt("Enter end time (seconds):", videoPreview.duration);
+            if (start && end) {
+                alert("Trim from " + start + "s to " + end + "s - Feature coming soon!");
+            }
+        }
+
+        function splitVideo() {
+            const time = prompt("Enter split time (seconds):", videoPreview.currentTime);
+            if (time) {
+                alert("Split at " + time + "s - Feature coming soon!");
+            }
+        }
+
+        function rotateVideo() {
+            alert("Rotate feature coming soon!");
+        }
+
+        function cropVideo() {
+            alert("Crop feature coming soon!");
+        }
+
+        function adjustVolume() {
+            const volume = prompt("Enter volume (0-200 percent):", "100");
+            if (volume) {
+                videoPreview.volume = volume / 100;
+            }
+        }
+
+        function adjustSpeed() {
+            const speed = prompt("Enter speed (0.5 to 2.0):", "1.0");
+            if (speed) {
+                videoPreview.playbackRate = parseFloat(speed);
+            }
+        }
+
+        function addAudio() {
+            alert("Add audio track feature coming soon!");
+        }
+
+        function addText() {
+            const text = prompt("Enter text to overlay:");
+            if (text) {
+                alert("Add text '" + text + "' - Feature coming soon!");
+            }
+        }
+
+        function exportVideo() {
+            loading.classList.add('active');
+            setTimeout(() => {
+                loading.classList.remove('active');
+                alert('Video export started!');
+            }, 2000);
+        }
+
+        // Image Editor Variables
+        const imageInput = document.createElement('input');
+        imageInput.type = 'file';
+        imageInput.accept = 'image/*';
+        imageInput.style.display = 'none';
+        document.body.appendChild(imageInput);
+
+        // Image upload function
+        window.uploadImage = function() {
+            imageInput.click();
+        };
+
+        // Add upload button to image tab header
+        const imageHeader = document.querySelector('#imageContent .header');
+        if (imageHeader) {
+            const uploadBtn = document.createElement('button');
+            uploadBtn.className = 'upload-btn';
+            uploadBtn.innerHTML = '📁 Upload Image';
+            uploadBtn.onclick = uploadImage;
+            imageHeader.appendChild(uploadBtn);
+        }
+
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                const imagePreview = document.getElementById('imagePreview');
+                const placeholder = document.getElementById('imagePlaceholder');
+                
+                imagePreview.src = url;
+                imagePreview.style.display = 'block';
+                placeholder.style.display = 'none';
+                
+                // Update image info
+                document.getElementById('imageFileName').textContent = file.name;
+                document.getElementById('imageFileSize').textContent = (file.size / 1024).toFixed(2) + ' KB';
+                document.getElementById('imageFormat').textContent = file.type.split('/')[1].toUpperCase();
+                
+                const img = new Image();
+                img.onload = function() {
+                    document.getElementById('imageDimensions').textContent = img.width + 'x' + img.height;
+                };
+                img.src = url;
+            }
+        });
+
+        // Image filter functions
+        function applyImageFilter(filterName) {
+            document.querySelectorAll('#imageContent .filter-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            document.getElementById(`img-filter-${filterName}`).classList.add('active');
+            
+            const imagePreview = document.getElementById('imagePreview');
+            imagePreview.className = '';
+            imagePreview.classList.add(`filter-${filterName}`);
+        }
+
+        function resetImageFilters() {
+            document.querySelectorAll('#imageContent .filter-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            document.getElementById('imagePreview').className = '';
+        }
+
+        // Image tool functions
+        function cropImage() {
+            alert('Crop feature coming soon!');
+        }
+
+        function resizeImage() {
+            alert('Resize feature coming soon!');
+        }
+
+        function rotateImage() {
+            alert('Rotate feature coming soon!');
+        }
+
+        function flipImage() {
+            alert('Flip feature coming soon!');
+        }
+
+        function adjustBrightness() {
+            alert('Brightness adjustment coming soon!');
+        }
+
+        function adjustContrast() {
+            alert('Contrast adjustment coming soon!');
+        }
+
+        function exportImage() {
+            loading.classList.add('active');
+            setTimeout(() => {
+                loading.classList.remove('active');
+                alert('Image export started!');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
